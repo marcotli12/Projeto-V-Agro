@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Agro - Registrar Adiantamento</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background-color: #f4f7f6; 
+            margin: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            padding: 20px;
+        }
+        .container { 
+            width: 100%;
+            max-width: 600px; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        }
+        h2 { 
+            color: #1565c0; 
+            text-align: center; 
+            margin: 0 0 20px 0; 
+            font-size: 1.8em; 
+            border-bottom: 2px solid #1565c0;
+            padding-bottom: 10px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        .campo { 
+            margin-bottom: 15px; 
+            flex: 1;
+        }
+        label { 
+            font-weight: bold; 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 1rem; 
+            color: #333;
+        }
+        input { 
+            width: 100%; 
+            padding: 12px 15px; 
+            border: 1px solid #ccc; 
+            border-radius: 6px; 
+            box-sizing: border-box;
+            font-size: 1rem;
+            height: 45px; 
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #1565c0;
+            outline: none;
+        }
+        button { 
+            width: 100%; 
+            padding: 15px; 
+            cursor: pointer; 
+            border: none; 
+            border-radius: 6px; 
+            background-color: #2e7d32;
+            color: white; 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            margin-top: 15px; 
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        .voltar { 
+            display: block; 
+            text-align: center; 
+            margin-top: 20px; 
+            text-decoration: none; 
+            color: #666; 
+            font-size: 14px; 
+        }
+        .voltar:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registrar Adiantamento</h2>
+
+        <form th:action="@{/salvarAdiantamento}" method="POST">
+            <input type="hidden" name="tipo" value="PAGAMENTO_FINAL">
+
+            <div class="form-row">
+                <div class="campo">
+                    <label>ID Lote/Produto:</label>
+                    <input type="number" name="idProduto" placeholder="Ex: 101" required>
+                </div>
+                <div class="campo">
+                    <label>Data do Registro:</label>
+                    <input type="date" name="data" required>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label>Produtor (Cliente):</label>
+                <input type="text" name="nomeProdutor" placeholder="Nome completo do produtor" required>
+            </div>
+
+            <div class="form-row">
+                <div class="campo" style="flex: 2;">
+                    <label>Responsável (Quem Recebeu):</label>
+                    <input type="text" name="nomeRecebeu" placeholder="Nome do vendedor" required>
+                </div>
+                <div class="campo" style="flex: 1;">
+                    <label>ID do Resp.:</label>
+                    <input type="number" name="idResponsavel" placeholder="ID" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="campo">
+                    <label>Valor Pago (R$):</label>
+                    <input type="number" step="0.01" name="valor" placeholder="0.00" required>
+                </div>
+                <div class="campo">
+                    <label>Qtd Mudas:</label>
+                    <input type="number" name="qtdMudas" placeholder="Qtd" required>
+                </div>
+            </div>
+
+            <button type="submit">Finalizar Registro</button>
+        </form>
+
+        <a th:href="@{/menu}" class="voltar">← Voltar ao Painel Principal</a>
+    </div>
+</body>
+</html>

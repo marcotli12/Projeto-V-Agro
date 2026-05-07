@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Consolidado - V-Agro</title>
+    
+    <link rel="stylesheet" th:href="@{/css/relatorio.css}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="card-relatorio">
+        <header>
+            <h2>📊 Extrato por Responsável</h2>
+            <p style="text-align: center; color: #888; font-size: 0.8em; margin-bottom: 20px;">
+                Identificação por ID do Colaborador | <span style="color: #ff5252;">Ação de Exclusão Disponível</span>
+            </p>
+        </header>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 80px;">ID RESP.</th>
+                    <th>NOME DO RESPONSÁVEL</th>
+                    <th>DETALHAMENTO DE DESPESAS</th>
+                    <th>DETALHAMENTO DE ADIANTAMENTOS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="id : ${ids}">
+                    <td class="id-badge">
+                        <span th:text="${id}"></span>
+                    </td>
+                    
+                    <td class="nome-destaque" th:text="${nomesMap.get(id)}"></td>
+                    
+                    <td class="detalhes-td">
+                        <div class="lista-itens">
+                            <div th:each="despesa : ${detalhesDespesas.get(id)}" class="item-linha">
+                                <div>
+                                    <span th:text="${despesa.nomeProduto}"></span>:
+                                    <span class="v-despesa" th:text="${#numbers.formatCurrency(despesa.preco)}"></span>
+                                </div>
+                                <form th:action="@{/excluir-despesa}" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" th:value="${despesa.id}">
+                                    <button type="submit" class="btn-delete" 
+                                            onclick="return confirm('Confirmar a exclusão desta despesa?')">×</button>
+                                </form>
+                            </div>
+                            <div class="total-linha t-despesa" th:if="${not #lists.isEmpty(detalhesDespesas.get(id))}">
+                                <span>TOTAL GASTO:</span>
+                                <span th:text="${#numbers.formatCurrency(somaDespesas.getOrDefault(id, 0.0))}"></span>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="detalhes-td">
+                        <div class="lista-itens">
+                            <div th:each="adiant : ${detalhesAdiantamentos.get(id)}" class="item-linha">
+                                <div>
+                                    <span th:text="${adiant.data != null ? adiant.data : 'Adiantamento'}"></span>:
+                                    <span class="v-adiant" th:text="${#numbers.formatCurrency(adiant.valor)}"></span>
+                                </div>
+                                <form th:action="@{/excluir-adiantamento}" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" th:value="${adiant.id}">
+                                    <button type="submit" class="btn-delete" 
+                                            onclick="return confirm('Deseja remover este adiantamento?')">×</button>
+                                </form>
+                            </div>
+                            <div class="total-linha t-adiant" th:if="${not #lists.isEmpty(detalhesAdiantamentos.get(id))}">
+                                <span>TOTAL RECEBIDO:</span>
+                                <span th:text="${#numbers.formatCurrency(somaAdiantamentos.getOrDefault(id, 0.0))}"></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer-btn">
+            <br>
+            <a th:href="@{/menu}" class="btn-voltar">← Voltar ao Menu Principal</a>
+        </div>
+    </div>
+
+</body>
+</html>

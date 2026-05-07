@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Agro - Lançamento de Despesa</title>
+    <link rel="stylesheet" th:href="@{/css/form_despesas.css}">
+</head>
+<body>
+
+    <div class="form-card">
+        <h2>Lançar Despesa</h2>
+        
+        <form th:action="@{/salvar}" method="POST">
+            <input type="hidden" name="tipo" value="DESPESA">
+
+            <div class="form-group">
+                <label for="idResponsavel">ID do Responsável Técnico</label>
+                <input type="number" id="idResponsavel" name="idResponsavel" placeholder="Digite o código (Ex: 10)" required>
+            </div>
+
+            <div class="form-group">
+                <label for="usuario">Nome do Responsável Técnico</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Nome do administrador" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nomeProduto">Descrição da Despesa</label>
+                <input type="text" id="nomeProduto" name="nomeProduto" placeholder="Ex: Saca de Adubo, Consultoria" required>
+            </div>
+
+            <div class="form-group">
+                <label for="preco">Preço Total (R$)</label>
+                <input type="number" step="0.01" id="preco" name="preco" placeholder="0.00" required>
+            </div>
+
+            <button type="submit" class="btn-submit-agro">Salvar no Sistema</button>
+        </form>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+        
+        <a th:href="@{/menu}" class="voltar-link" style="display: block; text-align: center; text-decoration: none; color: #666; font-size: 0.9em;">
+            ← Retornar ao Painel Principal
+        </a>
+    </div>
+
+</body>
+</html>

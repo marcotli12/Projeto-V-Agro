@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa V-Agro</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}">
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #1565c0; color: white; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f1f1; }
+        .no-results { color: #666; font-style: italic; margin-top: 10px; }
+        .section-title { color: #1565c0; border-left: 5px solid #1565c0; padding-left: 10px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <h2>Sistema de Pesquisa Global V-Agro</h2>
+
+    <form th:action="@{/pesquisa}" method="get">
+        <input type="text" name="termo" th:value="${termoDigitado}" 
+               placeholder="Digite o ID do responsável ou o nome..." 
+               style="padding: 10px; width: 300px; border-radius: 4px; border: 1px solid #ccc;">
+        <button type="submit" style="padding: 10px 20px; background-color: #1565c0; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Pesquisar
+        </button>
+    </form>
+
+    <hr>
+
+    <div th:if="${resultadosLancamentos != null}">
+        <h3 class="section-title">Despesas Encontradas</h3>
+        <table th:if="${not #lists.isEmpty(resultadosLancamentos)}">
+            <thead>
+                <tr>
+                    <th>ID Resp.</th>
+                    <th>Tipo</th>
+                    <th>Produto/Serviço</th>
+                    <th>Preço</th>
+                    <th>Responsável</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="l : ${resultadosLancamentos}">
+                    <td th:text="${l.idResponsavel}"></td>
+                    <td th:text="${l.tipo}"></td>
+                    <td th:text="${l.nomeProduto}"></td>
+                    <td th:text="${#numbers.formatCurrency(l.preco)}"></td>
+                    <td th:text="${l.usuarioNome}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="no-results" th:if="${#lists.isEmpty(resultadosLancamentos)}">Nenhuma despesa encontrada para este termo.</p>
+    </div>
+
+    <div th:if="${resultadosAdiantamentos != null}">
+        <h3 class="section-title">Adiantamentos Registrados</h3>
+        <table th:if="${not #lists.isEmpty(resultadosAdiantamentos)}">
+            <thead>
+                <tr>
+                    <th>ID Resp.</th>
+                    <th>Produtor</th>
+                    <th>Quem Recebeu</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="a : ${resultadosAdiantamentos}">
+                    <td th:text="${a.idResponsavel}"></td>
+                    <td th:text="${a.nomeProdutor}"></td>
+                    <td th:text="${a.nomeRecebeu}"></td>
+                    <td th:text="${#numbers.formatCurrency(a.valor)}"></td>
+                    <td th:text="${a.data}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="no-results" th:if="${#lists.isEmpty(resultadosAdiantamentos)}">Nenhum adiantamento encontrado para este termo.</p>
+    </div>
+
+    <br>
+    <div style="margin-top: 20px;">
+        <a th:href="@{/menu}" style="text-decoration: none; color: #666;">← Voltar ao Menu Principal</a>
+    </div>
+
+</body>
+</html>

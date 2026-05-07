@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-Agro Serviços | Consultoria e Mudas de Café</title>
+    <link rel="stylesheet" th:href="@{/css/clean_agro.css}">
+</head>
+<body>
+
+    <header class="header-nav">
+        <div class="logo-brand">V-Agro <span>Serviços</span></div>
+        <div class="menu-lines" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div id="side-panel" class="side-panel">
+        <a href="javascript:void(0)" onclick="toggleMenu()" style="font-size: 2rem; margin-bottom: 20px;">&times;</a>
+        <a th:href="@{/}">Página Inicial</a>
+        <a th:href="@{/mudas}">Catálogo de Mudas</a>
+        <a href="#contato" onclick="toggleMenu()">Fale Conosco</a>
+        <a th:href="@{/menu}">Acessar Sistema (RESTRITO)</a>
+    </div>
+
+    <section class="hero-white">
+        <h1><span>8 Anos</span> de Excelência em Consultoria e Mudas</h1>
+        <p>
+            Há quase uma década, a V-Agro atua no coração de Piumhi-MG, transformando a cafeicultura através de consultoria especializada e a venda das melhores mudas de café da região.
+        </p>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h2>8</h2>
+                <p>Anos de Experiência</p>
+            </div>
+            <div class="stat-card">
+                <h2>20M+</h2>
+                <p>Mudas Entregues</p>
+            </div>
+            <div class="stat-card">
+                <h2>100%</h2>
+                <p>Suporte Técnico</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" style="padding-top: 0;">
+        <div style="max-width: 800px; margin: 0 auto 60px; text-align: center;">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 20px;">Mais que mudas, entregamos resultados.</h2>
+            <p style="color: #666;">Nossa consultoria acompanha o produtor desde a escolha da variedade até o manejo no campo, garantindo que o investimento se transforme em produtividade real.</p>
+        </div>
+
+        <div class="grid-modern">
+            <div class="image-wrapper">
+                <img src="/images/v-agro-1.jpg" alt="Consultoria V-Agro">
+                <div class="img-info">
+                    <h3 style="color: var(--agro-green);">Consultoria Especializada</h3>
+                    <p style="font-size: 0.9rem; color: #777;">Orientação técnica para otimizar sua lavoura.</p>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <img th:src="@{/images/v-agro-2.jpg}" alt="Consultoria V-Agro">
+                <div class="img-info">
+                    <h3 style="color: var(--agro-green);">Venda de Mudas</h3>
+                    <p style="font-size: 0.9rem; color: #777;">Variedades selecionadas com alto vigor vegetativo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="social-footer">
+        <h2>Solicite um Orçamento</h2>
+        <p style="color: #666; margin-top: 10px;">Fale com nossos consultores e garanta a reserva do seu lote.</p>
+        
+        <div class="btn-group">
+            <a href="https://www.instagram.com/v_agroservicos/" target="_blank" class="btn-contact btn-instagram">
+                📸 Instagram
+            </a>
+            <a href="https://wa.me/5537999380290" target="_blank" class="btn-contact btn-whatsapp">
+                💬 WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer style="padding: 50px; text-align: center; background: #fff; border-top: 1px solid #f0f0f0;">
+        <p style="font-size: 0.8rem; color: #999;">&copy; 2026 V-Agro Serviços Agronômicos | Piumhi, MG</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const panel = document.getElementById("side-panel");
+            if (panel.style.width === "320px") {
+                panel.style.width = "0";
+            } else {
+                panel.style.width = "320px";
+            }
+        }
+    </script>
+</body>
+</html>

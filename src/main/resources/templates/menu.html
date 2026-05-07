@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Especialista - Raiz do Café</title>
+    
+    <link rel="stylesheet" th:href="@{/css/especialista.css}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        <header class="header-pro">
+            <h1>RAIZ DO <span>CAFÉ</span></h1>
+            <p>SISTEMA DE GESTÃO DE ALTA PERFORMANCE</p>
+        </header>
+
+        <div class="nav-grid">
+            <a th:href="@{/despesas}" class="glass-card">
+                <span class="card-icon">📈</span>
+                <h3>Despesas</h3>
+                <p>Controle financeiro e insumos agrícolas</p>
+            </a>
+
+            <a th:href="@{/adiantamento}" class="glass-card">
+                <span class="card-icon">💵</span>
+                <h3>Adiantamentos</h3>
+                <p>Gestão de capital e produtores</p>
+            </a>
+
+            <a th:href="@{/mudas}" class="glass-card">
+                <span class="card-icon">🌱</span>
+                <h3>Catálogo</h3>
+                <p>Variedades e estoque de mudas</p>
+            </a>
+
+            <a th:href="@{/relatorio-geral}" class="glass-card" style="background: rgba(46, 125, 50, 0.2);">
+                <span class="card-icon">📊</span>
+                <h3>Relatório Geral</h3>
+                <p>Visão consolidada de gastos por ID</p>
+            </a>
+
+            <a th:href="@{/pesquisa}" class="glass-card">
+                <span class="card-icon">🔍</span>
+                <h3>Consulta Global</h3>
+                <p>Pesquisar lançamentos e produtores</p>
+            </a>
+
+            <a th:href="@{/}" class="glass-card">
+                <span class="card-icon">🏠</span>
+                <h3>Site</h3>
+                <p>Voltar para a página inicial</p>
+            </a>
+        </div>
+
+        <div class="logout-box">
+            <a th:href="@{/logout}" class="btn-exit-pro">Finalizar Sessão</a>
+        </div>
+    </div>
+
+</body>
+</html>

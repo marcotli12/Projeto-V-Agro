@@ -1,0 +1,119 @@
+body {
+    background: linear-gradient(135deg, #1a2a1a 0%, #0a0f0a 100%);
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.card-relatorio {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+    color: #4caf50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+    padding-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+th {
+    background: rgba(76, 175, 80, 0.8);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    vertical-align: top;
+}
+
+.id-badge {
+    text-align: center;
+}
+.id-badge span {
+    background: #4caf50;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.nome-destaque {
+    font-weight: bold;
+    color: #69f0ae;
+}
+
+.item-linha {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 6px 0;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: #ff5252;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0 5px;
+    transition: 0.3s;
+    opacity: 0.6;
+}
+
+.btn-delete:hover {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+.v-despesa { color: #ff5252; font-weight: bold; }
+.v-adiant { color: #69f0ae; font-weight: bold; }
+
+.total-linha {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.t-despesa { color: #ff5252; }
+.t-adiant { color: #69f0ae; }
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 30px;
+    color: #4caf50;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    color: #fff;
+    transform: translateX(-5px);
+}

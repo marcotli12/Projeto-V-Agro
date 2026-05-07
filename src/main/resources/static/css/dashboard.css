@@ -1,0 +1,94 @@
+/* dashboard.css */
+:root {
+    --cafe-primario: #2c5e2e;
+    --cafe-secundario: #4e342e;
+    --fundo: #f8f9fa;
+    --branco: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container-central {
+    background: var(--branco);
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.header-gestao h1 {
+    color: var(--cafe-primario);
+    margin: 0;
+    font-size: 2rem;
+}
+
+.header-gestao p {
+    color: #666;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.grid-acoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.card-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f1f8e9;
+    color: var(--cafe-primario);
+    text-decoration: none;
+    border-radius: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.card-link:hover {
+    background: var(--cafe-primario);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.card-link span {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.btn-sair {
+    margin-top: 30px;
+    display: inline-block;
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border: 1px solid #ffcdd2;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.btn-sair:hover {
+    background: #ffebee;
+}
+
+/* Responsivo para celular */
+@media (max-width: 480px) {
+    .grid-acoes { grid-template-columns: 1fr; }
+}

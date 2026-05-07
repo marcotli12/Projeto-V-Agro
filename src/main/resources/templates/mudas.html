@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo V-Agro | 8 Anos de Excelência</title>
+    <link rel="stylesheet" th:href="@{/css/clean_agro.css}">
+    <link rel="stylesheet" th:href="@{/css/catalogo_tabela.css}">
+</head>
+<body>
+
+    <header class="header-nav">
+        <div class="logo-brand">V-Agro <span>Serviços</span></div>
+        <div class="menu-lines" onclick="window.location.href='/'">
+            <div></div><div></div><div></div>
+        </div>
+    </header>
+
+    <div class="hero-white" style="padding-bottom: 20px;">
+        <h1>Nosso <span>Catálogo Técnico</span></h1>
+        <p>Confira as variedades disponíveis para reserva na safra 2026.</p>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Variedade</th>
+                    <th>Resistência</th>
+                    <th>Produtividade</th>
+                    <th>Ciclo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Catuaí Vermelho 144</strong></td>
+                    <td><span class="status-badge status-resistencia">Média</span></td>
+                    <td>Alta</td>
+                    <td>Médio</td>
+                    <td><a href="https://wa.me/numero" class="btn-table-reserve">Reservar</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Arara</strong></td>
+                    <td><span class="status-badge status-resistencia" style="background:#bbf7d0">Imune à Ferrugem</span></td>
+                    <td>Muito Alta</td>
+                    <td>Tardio</td>
+                    <td><a href="https://wa.me/numero" class="btn-table-reserve">Reservar</a></td>
+                </tr>
+                <tr>
+                    <td><strong>Mundo Novo</strong></td>
+                    <td><span class="status-badge status-resistencia">Moderada</span></td>
+                    <td>Alta</td>
+                    <td>Médio</td>
+                    <td><a href="https://wa.me/numero" class="btn-table-reserve">Reservar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; color: #999;">
+        <p>Consultoria e Vendas de Mudas de Café | 8 Anos no Mercado</p>
+    </footer>
+
+</body>
+</html>

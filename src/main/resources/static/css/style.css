@@ -1,0 +1,128 @@
+:root {
+    --primary-green: #2e7d32;
+    --dark-green: #1b5e20;
+    --accent-blue: #1976d2;
+    --error-red: #d32f2f;
+    --bg-color: #f0f4f2;
+    --white: #ffffff;
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--bg-color); 
+    margin: 0; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 { 
+    color: var(--dark-green); 
+    margin-top: 30px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.menu { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+    width: 90%;
+    max-width: 800px;
+    margin: 30px 0;
+}
+
+.btn { 
+    padding: 15px; 
+    text-decoration: none; 
+    background: var(--primary-green); 
+    color: white; 
+    border-radius: 8px; 
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn:hover { 
+    background: var(--dark-green); 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.btn-logout { 
+    background: var(--error-red); 
+}
+
+.btn-exit {
+    grid-column: 2;
+}
+
+.btn-logout:hover { 
+    background: #b71c1c; 
+}
+
+.card-form {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 90%;
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.card-form h3 {
+    margin-top: 0;
+    color: var(--primary-green);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 120px;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
+.btn-save {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    background-color: var(--accent-blue) !important;
+}
+
+.btn-save:hover {
+    background-color: #1565c0 !important;
+}
+
+@media (max-width: 600px) {
+    form { flex-direction: column; }
+    .menu { 
+        grid-template-columns: 1fr; 
+    }
+    .btn-exit {
+        grid-column: auto;
+    }
+}
