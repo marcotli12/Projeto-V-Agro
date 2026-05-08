@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AdiantamentoController {
@@ -21,16 +20,13 @@ public class AdiantamentoController {
         return "adiantamento";
     }
 
-   @PostMapping("/salvar-adiantamento")
-    public String salvarAdiantamento(@RequestParam Integer idResponsavel, 
-                                 @RequestParam Double valor,
-                                 @RequestParam String nomeRecebeu) {
-    Adiantamento adiant = new Adiantamento();
-    adiant.setIdResponsavel(idResponsavel); 
-    adiant.setValor(valor);
-    adiant.setNomeRecebeu(nomeRecebeu);
+    @PostMapping("/salvarAdiantamento")
+    public String salvarAdiantamento(Adiantamento adiantamento) {
+        
+    adiantamento.setUsuarioNome("Admin"); 
     
-    adiantamentoRepository.save(adiant);
-        return "redirect:/menu";
+    adiantamentoRepository.save(adiantamento);
+    
+        return "redirect:/menu"; 
     }
 }
