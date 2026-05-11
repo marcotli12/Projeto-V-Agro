@@ -33,7 +33,7 @@ public class ProdutoController {
 
     @GetMapping("/") 
     public String exibirApresentacao() {
-        return "apresentacao"; 
+        return "index"; 
     }
 
     @GetMapping("/menu")
