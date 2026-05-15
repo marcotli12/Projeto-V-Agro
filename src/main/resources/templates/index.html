@@ -1,101 +1,144 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Agro Serviços | Consultoria e Mudas de Café</title>
-    <link rel="stylesheet" th:href="@{/css/clean_agro.css}">
+    <title>V-Agro Serviços | Especialistas em Café</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="header-nav">
-        <div class="logo-brand">V-Agro <span>Serviços</span></div>
-        <div class="menu-lines" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> V-Agro <span>Serviços</span>
+        </div>
+        
+        <div class="menu-container">
+            <div class="dots-menu" id="dotsMenu" onclick="toggleMenu()">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+            <nav class="dropdown-nav" id="dropdownNav">
+                <a href="#destaques"><i class="fa-solid fa-seedling"></i> Nossos Serviços</a>
+                <a href="#historia"><i class="fa-solid fa-book-open"></i> Nossa História</a>
+                <a href="templates/menu.html"><i class="fa-solid fa-bars"></i> Menu Completo</a>
+                <a href="mudas.html"><i class="fa-solid fa-shopping-cart"></i> Comprar Mudas</a>
+                <a href="#contato"><i class="fa-solid fa-phone"></i> Contato</a>
+                <hr>
+                <a href="/login-cliente"><i class="fa-solid fa-user"></i> Área do Cliente</a>
+                <a href="/admin-painel"><i class="fa-solid fa-lock"></i> Painel Admin (Despesas)</a>
+            </nav>
         </div>
     </header>
 
-    <div id="side-panel" class="side-panel">
-        <a href="javascript:void(0)" onclick="toggleMenu()" style="font-size: 2rem; margin-bottom: 20px;">&times;</a>
-        <a th:href="@{/}">Página Inicial</a>
-        <a th:href="@{/mudas}">Catálogo de Mudas</a>
-        <a href="#contato" onclick="toggleMenu()">Fale Conosco</a>
-        <a th:href="@{/menu}">Acessar Sistema (RESTRITO)</a>
-    </div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>O Futuro da sua Lavoura Começa Aqui</h1>
+            <p>Especialistas em produção de mudas de café e consultoria agrícola para garantir a máxima produtividade da sua plantação.</p>
+            <a href="mudas.html" class="btn-primary">Ver Catálogo de Mudas</a>
+        </div>
+    </section>
 
-    <section class="hero-white">
-        <h1><span>8 Anos</span> de Excelência em Consultoria e Mudas</h1>
-        <p>
-            Há quase uma década, a V-Agro atua no coração de Piumhi-MG, transformando a cafeicultura através de consultoria especializada e a venda das melhores mudas de café da região.
-        </p>
-
-        <div class="stats-container">
-            <div class="stat-card">
-                <h2>8</h2>
-                <p>Anos de Experiência</p>
+    <section class="destaques" id="destaques">
+        <h2 class="section-title">Nossos <span>Serviços</span></h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-seedling"></i></div>
+                <h3>Venda de Mudas de Café</h3>
+                <p>Mudas selecionadas, com alto rigor genético e fitossanitário. Garantimos o melhor enraizamento e desenvolvimento para a sua nova lavoura.</p>
+                <a href="mudas.html" class="btn-secondary">Comprar Mudas</a>
             </div>
-            <div class="stat-card">
-                <h2>20M+</h2>
-                <p>Mudas Entregues</p>
-            </div>
-            <div class="stat-card">
-                <h2>100%</h2>
-                <p>Suporte Técnico</p>
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-tractor"></i></div>
+                <h3>Manutenção e Consultoria</h3>
+                <p>Acompanhamento técnico especializado, conselhos de manejo, adubação e controle de pragas para maximizar a sua colheita.</p>
+                <a href="#contato" class="btn-secondary">Agendar Visita</a>
             </div>
         </div>
     </section>
 
-    <section class="gallery-section" style="padding-top: 0;">
-        <div style="max-width: 800px; margin: 0 auto 60px; text-align: center;">
-            <h2 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 20px;">Mais que mudas, entregamos resultados.</h2>
-            <p style="color: #666;">Nossa consultoria acompanha o produtor desde a escolha da variedade até o manejo no campo, garantindo que o investimento se transforme em produtividade real.</p>
+    <section class="videos" id="videos">
+        <h2 class="section-title">Nossas <span>Lavouras</span> em Ação</h2>
+        <p class="section-subtitle">Confira a qualidade do nosso trabalho no campo.</p>
+        <div class="video-grid">
+            <div class="video-wrapper">
+                <video controls poster="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                    <source src="seu_video_lavoura1.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+            <div class="video-wrapper">
+                <video controls poster="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                    <source src="seu_video_lavoura2.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
         </div>
+    </section>
 
-        <div class="grid-modern">
-            <div class="image-wrapper">
-                <img src="/images/v-agro-1.jpg" alt="Consultoria V-Agro">
-                <div class="img-info">
-                    <h3 style="color: var(--agro-green);">Consultoria Especializada</h3>
-                    <p style="font-size: 0.9rem; color: #777;">Orientação técnica para otimizar sua lavoura.</p>
+    <section class="historia" id="historia">
+        <div class="historia-container">
+            <h2 class="section-title">A História da <span>V-Agro</span></h2>
+            <div class="historia-content">
+                <div class="historia-text">
+                    <p>Com sede na cidade de <strong>Piumhi, MG</strong>, a V-Agro Serviços nasceu da paixão pela cafeicultura e do desejo de impulsionar os produtores da nossa região e de todo o Brasil.</p>
+                    <p>Há <strong>mais de 10 anos</strong> no mercado, trabalhamos incansavelmente com a produção de mudas de altíssima qualidade e prestamos auxílio direto na manutenção e produção das lavouras.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>+20 Milhões</h3>
+                            <p>Mudas Vendidas</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10 Anos</h3>
+                            <p>De Tradição</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="image-wrapper">
-                <img th:src="@{/images/v-agro-2.jpg}" alt="Consultoria V-Agro">
-                <div class="img-info">
-                    <h3 style="color: var(--agro-green);">Venda de Mudas</h3>
-                    <p style="font-size: 0.9rem; color: #777;">Variedades selecionadas com alto vigor vegetativo.</p>
+        </div>
+    </section>
+
+
+    <footer id="contato">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>V-Agro Serviços</h3>
+                <p>Piumhi - MG</p>
+                <p>Qualidade que brota da terra.</p>
+            </div>
+            <div class="footer-social">
+                <h4>Conecte-se conosco:</h4>
+                <div class="social-links">
+                    <a href="https://wa.me/5500000000000" target="_blank" class="whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://instagram.com/seu_instagram" target="_blank" class="instagram"><i class="fa-brands fa-instagram"></i> Instagram</a>
                 </div>
             </div>
+            <div class="footer-admin">
+                <h4>Acesso Restrito</h4>
+                <a href="/login">Cadastro/Login de Produtores</a><br>
+                <a href="/login">Portal Administrativo (Vagner, Valdenilson, Valdenir)</a>
+            </div>
         </div>
-    </section>
-
-    <section id="contato" class="social-footer">
-        <h2>Solicite um Orçamento</h2>
-        <p style="color: #666; margin-top: 10px;">Fale com nossos consultores e garanta a reserva do seu lote.</p>
-        
-        <div class="btn-group">
-            <a href="https://www.instagram.com/v_agroservicos/" target="_blank" class="btn-contact btn-instagram">
-                📸 Instagram
-            </a>
-            <a href="https://wa.me/5537999380290" target="_blank" class="btn-contact btn-whatsapp">
-                💬 WhatsApp
-            </a>
+        <div class="footer-bottom">
+            <p>&copy; 2026 V-Agro Serviços. Todos os direitos reservados.</p>
         </div>
-    </section>
-
-    <footer style="padding: 50px; text-align: center; background: #fff; border-top: 1px solid #f0f0f0;">
-        <p style="font-size: 0.8rem; color: #999;">&copy; 2026 V-Agro Serviços Agronômicos | Piumhi, MG</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            const panel = document.getElementById("side-panel");
-            if (panel.style.width === "320px") {
-                panel.style.width = "0";
-            } else {
-                panel.style.width = "320px";
+            var dropdown = document.getElementById("dropdownNav");
+            dropdown.classList.toggle("active");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.fa-ellipsis-vertical') && !event.target.matches('.dots-menu')) {
+                var dropdowns = document.getElementsByClassName("dropdown-nav");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('active')) {
+                        openDropdown.classList.remove('active');
+                    }
+                }
             }
         }
     </script>
